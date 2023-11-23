@@ -159,4 +159,13 @@ public class PlayerBehavior : MonoBehaviour
     {
         Debug.DrawLine(_groundPoint.position,Vector3.down * .1f + _groundPoint.position);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            _soundManager.PlaySound(Channel.PLAYER_HURT_SFX, Sound.HURT);
+
+        }
+    }
 }

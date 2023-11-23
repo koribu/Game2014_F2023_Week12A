@@ -5138,6 +5138,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6cf44d6efca36843a0807cbdebb70ea, type: 3}
+--- !u!1 &407421444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2511314179105135700, guid: 19d5dba8faabcde4f94accad0357f83f, type: 3}
+  m_PrefabInstance: {fileID: 1453492995260329644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8272,6 +8277,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8563261916323407599, guid: 19d5dba8faabcde4f94accad0357f83f, type: 3}
   m_PrefabInstance: {fileID: 1453492995260329644}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &1347873415
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407421444}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.002642274, y: -0.25144798}
+  m_Size: {x: 0.64869094, y: 0.8129536}
+  m_Direction: 0
 --- !u!1 &1361086078
 GameObject:
   m_ObjectHideFlags: 0
@@ -9150,7 +9190,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2511314179105135700, guid: 19d5dba8faabcde4f94accad0357f83f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1347873415}
   m_SourcePrefab: {fileID: 100100000, guid: 19d5dba8faabcde4f94accad0357f83f, type: 3}
 --- !u!114 &2929252284158295168
 MonoBehaviour:
