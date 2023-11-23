@@ -29,6 +29,9 @@ public class PlayerBehavior : MonoBehaviour
 
     public bool _isGrounded = false;
 
+    [SerializeField]
+    HealthBarController _healthBar;
+
     Animator _animator;
     SoundManager _soundManager;
 
@@ -166,6 +169,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             _soundManager.PlaySound(Channel.PLAYER_HURT_SFX, Sound.HURT);
 
+            _healthBar.GetDamage(20);
         }
     }
 }
