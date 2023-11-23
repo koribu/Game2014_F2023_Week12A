@@ -27,15 +27,18 @@ public class PlayerBehavior : MonoBehaviour
 
     float _airFactor = .3f;
 
-    bool _isGrounded = false;
+    public bool _isGrounded = false;
 
     Animator _animator;
+    SoundManager _soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _soundManager = FindObjectOfType<SoundManager>();
+
         if(GameObject.Find("ScreenController"))
             _leftJoystick = GameObject.Find("LeftJoystick").GetComponent<Joystick>();
 
@@ -46,9 +49,9 @@ public class PlayerBehavior : MonoBehaviour
     {
        IsGrounded();
         //Movement functionality
-       Move();
+    
        //Jump fucntionality
-       Jump();
+      
 
         if(!_isGrounded) //OnAir
         {
@@ -65,6 +68,12 @@ public class PlayerBehavior : MonoBehaviour
         {
             _animator.SetInteger("State", (int)AnimationStates.IDLE);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+        Jump();
     }
 
     void Move()
@@ -107,7 +116,7 @@ public class PlayerBehavior : MonoBehaviour
 
         _rigidbody.AddForce(force);
 
-        _rigidbody.velocity = new Vector2(Mathf.Clamp(_rigidbody.velocity.x, -_maxSpeed , maxSpeed), _rigidbody.velocity.y);
+        _rigidbody.velocity = new Vector2(Mathf.Clamp(_rigidbody.velocity.x, -_maxSpeed , maxSpeed), Mathf.Clamp(_rigidbody.velocity.y, -10, 10));
     }
 
 
@@ -127,12 +136,14 @@ public class PlayerBehavior : MonoBehaviour
         if(_isGrounded && _isJumping > _tresholdForJump)
         {
             _rigidbody.AddForce(Vector2.up * _jumpForceAmount);
+            _soundManager.PlaySound(Channel.PLAYER_SFX, Sound.JUMP);
+
         }
     }
 
     void IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(_groundPoint.position, .1f, Vector2.down, .1f, _groundingLayers);
+        RaycastHit2D hit = Physics2D.CircleCast(_groundPoint.position, .01f, Vector2.down, .1f, _groundingLayers);
         _isGrounded = hit;
     }
 

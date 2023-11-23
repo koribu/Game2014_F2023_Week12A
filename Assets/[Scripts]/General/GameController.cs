@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _soundManager.PlaySound(Channel.MUSIC, Sound.MAIN_MUSIC);
+        _soundManager.PlayMusic(Sound.MAIN_MUSIC);
+
     }
 
 }
