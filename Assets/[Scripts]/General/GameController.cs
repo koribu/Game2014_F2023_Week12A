@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameController : MonoBehaviour
 {
     [SerializeField]
@@ -9,6 +10,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     bool _testing;
+
+    SoundManager _soundManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,7 +21,15 @@ public class GameController : MonoBehaviour
             _onScreenControllers.SetActive(Application.platform != RuntimePlatform.WindowsPlayer &&
                                            Application.platform != RuntimePlatform.WindowsEditor);
         }
-                
+
+        _soundManager = FindObjectOfType<SoundManager>();
+
+
+    }
+
+    void Start()
+    {
+        _soundManager.PlaySound(Channel.MUSIC, Sound.MAIN_MUSIC);
     }
 
 }
